@@ -1,6 +1,6 @@
 # Acompanhamento de validação de insígnias
 
-O objetivo deste repositório é acompanhar a validação de insĩgnias dos educandos e mentorandos do PAQ.
+O objetivo deste repositório é acompanhar a validação de insĩgnias dos educandos e mentorandos do PAQ [@zanotta23](https://github.com/zanotta23) e [@Petoteta](https://github.com/Petoteta).
 
 Neste projetos validaremos insígnias de HTML/CSS, Javascript e Lógica de programação
 
