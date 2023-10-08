@@ -3,11 +3,17 @@
 */
 
 :root {
+  /* cores */
   --cor-primaria: #22577A;
   --cor-secundaria: #38A3A5;
   --cor-3: #57CC99;
   --cor-4: #80ED99;
   --fundo: #C7F9CC;
+
+  /* espaçamentos */
+  --margem-padrao: 10px;
+  --border-radius-padrao: 5px;
+
 }
 
 h1 {
@@ -28,14 +34,15 @@ body {
 }
 
 .content table {
-  margin-top: 20px;
+  margin-top: var(--margem-padrao);
   align-items: center;
   width: 50%;
 }
 
 table {
   border: 2px solid var(--cor-primaria);
-  border-radius: 5px;
+  border-radius: var(--border-radius-padrao);
+  color: var(--cor-primaria);
 }
 
 .campo-produto {
@@ -54,21 +61,23 @@ table {
 }
 
 .campo-adicionar button {
-  margin-left: 10px;
+  width: 150px;
+  margin-left: var(--margem-padrao);
 }
 
 button {
-  width: 100px;
+  width: 100%;
   height: 30px;
-  border-radius: 5px;
+  border-radius: var(--border-radius-padrao);
   border: 2px solid var(--cor-primaria);
   background-color: var(--cor-secundaria);
   cursor: pointer;
+  color: var(--fundo);
 }
 
 input {
   width: 100%;
-  border-radius: 5px;
+  border-radius: var(--border-radius-padrao);
   border: 2px solid var(--cor-primaria);
   background-color: var(--fundo);
 }
