@@ -20,3 +20,7 @@ O projeto que os educandos desenvolverão trata-se de uma lista de compras intel
 ![Mockup da tela inicial](./doc/mockup-tela-inicial.jpeg)
 
 **Obs.:** Este mockup é apenas para a base do projeto, alterações serão feitas para contemplar todos os recursos que queremos implementar.
+
+## Projeto no GitHub Pages
+
+O projeto rodando no GitHub pages pode ser acessado por [aqui](https://thcerutti.github.io/acompanhamento-validacao-insignias/).
