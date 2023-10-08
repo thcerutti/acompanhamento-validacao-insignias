@@ -1,0 +1,74 @@
+/*  Paleta de cores:
+    https://coolors.co/palette/22577a-38a3a5-57cc99-80ed99-c7f9cc
+*/
+
+:root {
+  --cor-primaria: #22577A;
+  --cor-secundaria: #38A3A5;
+  --cor-3: #57CC99;
+  --cor-4: #80ED99;
+  --fundo: #C7F9CC;
+}
+
+h1 {
+  color: var(--cor-primaria);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--fundo);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content table {
+  margin-top: 20px;
+  align-items: center;
+  width: 50%;
+}
+
+table {
+  border: 2px solid var(--cor-primaria);
+  border-radius: 5px;
+}
+
+.campo-produto {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.campo-adicionar {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.campo-adicionar button {
+  margin-left: 10px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid var(--cor-primaria);
+  background-color: var(--cor-secundaria);
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--cor-primaria);
+  background-color: var(--fundo);
+}
