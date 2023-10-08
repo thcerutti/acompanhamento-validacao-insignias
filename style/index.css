@@ -14,6 +14,8 @@
   --margem-padrao: 10px;
   --border-radius-padrao: 5px;
 
+  /* tamanhos */
+  --width-padrao-conteudo: 50%;
 }
 
 h1 {
@@ -24,6 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+
   background-color: var(--fundo);
 }
 
@@ -34,14 +37,15 @@ body {
 }
 
 .content table {
-  margin-top: var(--margem-padrao);
   align-items: center;
-  width: 50%;
+  margin-top: var(--margem-padrao);
+  width: var(--width-padrao-conteudo)
 }
 
 table {
   border: 2px solid var(--cor-primaria);
   border-radius: var(--border-radius-padrao);
+
   color: var(--cor-primaria);
 }
 
@@ -49,13 +53,16 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   width: 100%;
 }
 
 .campo-adicionar {
   display: flex;
   flex-direction: row;
-  width: 50%;
+
+  width: var(--width-padrao-conteudo);
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,16 +75,35 @@ table {
 button {
   width: 100%;
   height: 30px;
-  border-radius: var(--border-radius-padrao);
+
   border: 2px solid var(--cor-primaria);
+  border-radius: var(--border-radius-padrao);
+
   background-color: var(--cor-secundaria);
-  cursor: pointer;
   color: var(--fundo);
+
+  cursor: pointer;
 }
 
 input {
   width: 100%;
-  border-radius: var(--border-radius-padrao);
+
   border: 2px solid var(--cor-primaria);
+  border-radius: var(--border-radius-padrao);
+
   background-color: var(--fundo);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: var(--width-padrao-conteudo);
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--margem-padrao);
+
+  color: var(--cor-primaria);
 }
