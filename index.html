@@ -12,10 +12,10 @@
     <main>
       <div class="campo-adicionar">
         <input type="text" name="produto" />
-        <button>Adicionar</button>
+        <button onclick="adicionarProduto()">Adicionar</button>
       </div>
       <div class="content">
-        <table>
+        <table id="tabela-produtos">
           <tr>
             <th>Qtde</th>
             <th class="campo-produto">Produto</th>
@@ -38,7 +38,7 @@
             <td>1</td>
             <td class="campo-produto">dúzia de ovos</td>
             <td>R$ 9,00</td>
-            <td><button>Excluir</button></td>
+            <td><button onclick="excluirProduto(event)">Excluir</button></td>
           </tr>
         </table>
       </div>
@@ -52,5 +52,6 @@
       </div>
     </footer>
     <link rel="stylesheet" href="style/index.css" />
+    <script src="script/index.js"></script>
   </body>
 </html>
