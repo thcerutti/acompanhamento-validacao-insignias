@@ -111,3 +111,11 @@ footer {
 
   color: var(--cor-primaria);
 }
+
+#qtde {
+  width: 100px;
+}
+
+#valor-unitario {
+  width: 150px;
+}
