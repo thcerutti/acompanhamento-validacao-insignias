@@ -11,8 +11,9 @@
     </header>
     <main>
       <div class="campo-adicionar">
-        <input type="text" name="produto" />
+        <input type="text" name="produto" id="input-text" />
         <button onclick="adicionarProduto()">Adicionar</button>
+        <button onclick="adicionarProdutoNaLista()">Test</button>
       </div>
       <div class="content">
         <table id="tabela-produtos">
@@ -22,33 +23,15 @@
             <th>Preço</th>
             <th>Ações</th>
           </tr>
-          <tr>
-            <td>3</td>
-            <td class="campo-produto">litros de leite</td>
-            <td>R$ 5,00</td>
-            <td><button>Excluir</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td class="campo-produto">pacote de farrinha de trigo</td>
-            <td>R$ 3,50</td>
-            <td><button>Excluir</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td class="campo-produto">dúzia de ovos</td>
-            <td>R$ 9,00</td>
-            <td><button onclick="excluirProduto(event)">Excluir</button></td>
-          </tr>
         </table>
       </div>
     </main>
     <footer>
       <div>
-        <span><strong>Quantidade de produtos:</strong> 5</span>
+        <strong>Quantidade de produtos: </strong><span id="qtd-itens">5</span>
       </div>
       <div>
-        <span><strong>Total:</strong> R$ 17,50</span>
+        <strong>Total: </strong><span id="valor-total">R$ 17,50</span>
       </div>
     </footer>
     <link rel="stylesheet" href="style/index.css" />
