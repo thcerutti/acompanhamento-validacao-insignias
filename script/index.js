@@ -1,11 +1,5 @@
 const idTabela = "tabela-produtos";
-const produtos = [
-  {
-    qtde: 1,
-    produto: "Arroz",
-    valor: 5.5,
-  },
-];
+const produtos = [];
 
 function limparTabela() {
   while (document.getElementById(idTabela).hasChildNodes()) {
@@ -16,19 +10,27 @@ function limparTabela() {
 }
 
 function adicionarProdutoNaLista() {
-  const quantidade = 1;
-  const produto = "teste";
-  const precoUnitario = 1.99;
+  const produto = document.getElementById("produto").value;
+  if (produto.trim().length === 0) {
+    return;
+  }
 
   limparTabela();
   adicionarCabecalho();
+
+  const quantidade = Number(document.getElementById("qtde").value);
+  const precoUnitario = Number(document.getElementById("valor-unitario").value);
 
   produtos.push({
     qtde: quantidade,
     produto: produto,
     valor: precoUnitario,
   });
-  reRenderTest();
+  popularTabela();
+  document.getElementById("qtde").value = "";
+  document.getElementById("produto").value = "";
+  document.getElementById("valor-unitario").value = "";
+  document.getElementById("qtde").focus();
 }
 
 function adicionarCabecalho() {
@@ -55,9 +57,10 @@ function adicionarCabecalho() {
   tabela.appendChild(cabecalho);
 }
 
-function reRenderTest() {
+function popularTabela() {
   const tabela = document.getElementById(idTabela);
-  // tabela.setInnerHTML = "";
+  let quantidadeItens = 0;
+  let precoTotal = 0;
 
   produtos.forEach((produto) => {
     const novaLinha = document.createElement("tr");
@@ -66,6 +69,7 @@ function reRenderTest() {
     const campoQtde = document.createElement("td");
     campoQtde.innerHTML = produto.qtde;
     novaLinha.appendChild(campoQtde);
+    quantidadeItens += Number(produto.qtde);
 
     // produto
     const campoProduto = document.createElement("td");
@@ -73,10 +77,18 @@ function reRenderTest() {
     campoProduto.classList.add("campo-produto");
     novaLinha.appendChild(campoProduto);
 
-    // valor
-    const campoValor = document.createElement("td");
-    campoValor.innerHTML = `R$ ${produto.valor}`;
-    novaLinha.appendChild(campoValor);
+    // preço unitário
+    const campoValorUnitario = document.createElement("td");
+    campoValorUnitario.innerHTML = converterNumeroParaMoeda(produto.valor);
+    novaLinha.appendChild(campoValorUnitario);
+
+    // preço total
+    const campoValorTotalItem = document.createElement("td");
+    campoValorTotalItem.innerHTML = converterNumeroParaMoeda(
+      produto.valor * produto.qtde
+    );
+    novaLinha.appendChild(campoValorTotalItem);
+    precoTotal += Number(produto.valor * produto.qtde);
 
     // ações
     const campoAcoes = document.createElement("td");
@@ -88,33 +100,19 @@ function reRenderTest() {
     novaLinha.appendChild(campoAcoes);
     tabela.appendChild(novaLinha);
   });
+
+  document.getElementById("qtd-itens").innerHTML = quantidadeItens;
+  document.getElementById("valor-total").innerHTML =
+    converterNumeroParaMoeda(precoTotal);
 }
 
-function adicionarProduto() {
-  const tabela = document.getElementById(idTabela);
-
-  const novaLinha = document.createElement("tr");
-  const campoQtde = document.createElement("td");
-  campoQtde.innerHTML = 42;
-  novaLinha.appendChild(campoQtde);
-
-  const campoProduto = document.createElement("td");
-  campoProduto.innerHTML = "Produto exemplo";
-  campoProduto.classList.add("campo-produto");
-  novaLinha.appendChild(campoProduto);
-
-  const campoValor = document.createElement("td");
-  campoValor.innerHTML = "R$ 5.50";
-  novaLinha.appendChild(campoValor);
-
-  const campoAcoes = document.createElement("td");
-  const botaoExcluir = document.createElement("button");
-  botaoExcluir.innerHTML = "Excluir";
-  botaoExcluir.onclick = () => console.log("Excluir item");
-  campoAcoes.appendChild(botaoExcluir);
-  novaLinha.appendChild(campoAcoes);
-
-  tabela.appendChild(novaLinha);
+function converterNumeroParaMoeda(numero) {
+  return (
+    Number(numero).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }) || "R$ 0,00"
+  );
 }
 
 function excluirProduto(event) {
