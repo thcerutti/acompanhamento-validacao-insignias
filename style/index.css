@@ -68,9 +68,12 @@ table {
   margin-right: auto;
 }
 
+.campo-adicionar input {
+  margin-right: var(--margem-padrao);
+}
+
 .campo-adicionar button {
   width: 150px;
-  margin-left: var(--margem-padrao);
 }
 
 button {
@@ -107,4 +110,12 @@ footer {
   margin-top: var(--margem-padrao);
 
   color: var(--cor-primaria);
+}
+
+#qtde {
+  width: 100px;
+}
+
+#valor-unitario {
+  width: 150px;
 }
