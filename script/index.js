@@ -1,6 +1,20 @@
 const idTabela = "tabela-produtos";
 const produtos = [];
 
+function redesenharTabela() {
+  limparTabela();
+  adicionarCabecalho();
+  popularTabela();
+}
+
+function excluirProduto(event) {
+  const index = produtos.findIndex(
+    (produto) => produto.descricao === event.descricao
+  );
+  produtos.splice(index, 1);
+  redesenharTabela();
+}
+
 function limparTabela() {
   while (document.getElementById(idTabela).hasChildNodes()) {
     document
@@ -15,22 +29,20 @@ function adicionarProdutoNaLista() {
     return;
   }
 
-  limparTabela();
-  adicionarCabecalho();
-
   const quantidade = Number(document.getElementById("qtde").value);
   const precoUnitario = Number(document.getElementById("valor-unitario").value);
 
   produtos.push({
     qtde: quantidade,
-    produto: produto,
+    descricao: produto,
     valor: precoUnitario,
   });
-  popularTabela();
+
   document.getElementById("qtde").value = "";
   document.getElementById("produto").value = "";
   document.getElementById("valor-unitario").value = "";
   document.getElementById("qtde").focus();
+  redesenharTabela();
 }
 
 function adicionarCabecalho() {
@@ -73,7 +85,7 @@ function popularTabela() {
 
     // produto
     const campoProduto = document.createElement("td");
-    campoProduto.innerHTML = produto.produto;
+    campoProduto.innerHTML = produto.descricao;
     campoProduto.classList.add("campo-produto");
     novaLinha.appendChild(campoProduto);
 
@@ -94,7 +106,7 @@ function popularTabela() {
     const campoAcoes = document.createElement("td");
     const botaoExcluir = document.createElement("button");
     botaoExcluir.innerHTML = "Excluir";
-    botaoExcluir.onclick = () => console.log("Excluir item");
+    botaoExcluir.onclick = () => excluirProduto(produto);
     campoAcoes.appendChild(botaoExcluir);
 
     novaLinha.appendChild(campoAcoes);
@@ -113,8 +125,4 @@ function converterNumeroParaMoeda(numero) {
       currency: "BRL",
     }) || "R$ 0,00"
   );
-}
-
-function excluirProduto(event) {
-  console.log("Excluir item", event);
 }
