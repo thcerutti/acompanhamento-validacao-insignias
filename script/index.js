@@ -1,6 +1,7 @@
 const idTabela = "tabela-produtos";
 const produtos = [];
 
+// [Lógica De Programação][Nivel 2][Funções]
 function redesenharTabela() {
   limparTabela();
   adicionarCabecalho();
@@ -25,13 +26,16 @@ function limparTabela() {
 
 function adicionarProdutoNaLista() {
   const produto = document.getElementById("produto").value;
-  if (produto.trim().length === 0) {
+  const produtoEstaVazio = produto.trim().length === 0;
+  // [Lógica De Programação][Nivel 1][Estruturas condicionais (if/else)]
+  if (produtoEstaVazio) {
     return;
   }
 
   const quantidade = Number(document.getElementById("qtde").value);
   const precoUnitario = Number(document.getElementById("valor-unitario").value);
 
+  // [Lógica De Programação][Nivel 3][Vetores e/ou matrizes]
   produtos.push({
     qtde: quantidade,
     descricao: produto,
@@ -74,6 +78,7 @@ function popularTabela() {
   let quantidadeItens = 0;
   let precoTotal = 0;
 
+  // [Lógica De Programação][Nivel 1][Estruturas de repetição (for/while)]
   produtos.forEach((produto) => {
     const novaLinha = document.createElement("tr");
 
@@ -100,6 +105,7 @@ function popularTabela() {
       produto.valor * produto.qtde
     );
     novaLinha.appendChild(campoValorTotalItem);
+    // [Lógica De Programação][Nivel 1][Operadores lógicos, relacionais e aritméticos (realize algum cálculo aritméticos)]
     precoTotal += Number(produto.valor * produto.qtde);
 
     // ações
@@ -125,4 +131,19 @@ function converterNumeroParaMoeda(numero) {
       currency: "BRL",
     }) || "R$ 0,00"
   );
+}
+
+function avaliarProjeto() {
+  const nota = Number(document.getElementById("nota").value);
+  const notaInvalida = nota < 0 || nota > 10;
+
+  if (notaInvalida) {
+    alert("A nota deve ser entre 0 e 10");
+    return;
+  }
+
+  const avaliacao = document.getElementById("avaliacao");
+  const mensagem = document.createElement("p");
+  mensagem.innerHTML = `Sua nota foi ${nota}`;
+  avaliacao.appendChild(mensagem);
 }
