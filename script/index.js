@@ -142,8 +142,8 @@ function avaliarProjeto() {
     return;
   }
 
-  const avaliacao = document.getElementById("avaliacao");
-  const mensagem = document.createElement("p");
-  mensagem.innerHTML = `Sua nota foi ${nota}`;
-  avaliacao.appendChild(mensagem);
+  const plural = nota > 1 ? "estrelas" : "estrela";
+  const mensagemDeAvaliacao = `Obrigado pela avaliação de ${nota} ${plural}!`;
+
+  alert(mensagemDeAvaliacao);
 }
