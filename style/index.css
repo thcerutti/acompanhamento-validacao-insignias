@@ -105,7 +105,7 @@ table {
   width: 100%;
 }
 
-.campo-adicionar {
+.secao-adicionar {
   display: flex;
   flex-direction: row;
 
@@ -115,11 +115,11 @@ table {
   margin-right: auto;
 }
 
-.campo-adicionar input {
+.secao-adicionar input {
   margin-right: var(--margem-padrao);
 }
 
-.campo-adicionar button {
+.secao-adicionar button {
   width: 150px;
 }
 
@@ -160,9 +160,9 @@ footer {
 }
 
 #qtde {
-  width: 100px;
+  width: 35%;
 }
 
 #valor-unitario {
-  width: 150px;
+  width: 35%;
 }
